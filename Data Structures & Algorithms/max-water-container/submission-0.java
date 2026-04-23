@@ -1,0 +1,20 @@
+class Solution {
+    public int maxArea(int[] height) {
+        int i = 0;
+        int j = height.length-1;
+
+        int constSize = 0;
+
+        while(i<j){
+            if(constSize< (Math.min(height[j],height[i]))*(j-i))
+            constSize = Math.min(height[j],height[i])*(j-i);
+
+            if(height[i]<height[j])
+            i++;
+            else
+            j--;
+        }
+
+        return constSize;
+    }
+}
